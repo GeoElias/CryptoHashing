@@ -69,22 +69,6 @@
         }
     });
 
-    document.getElementById('verifyData').addEventListener('click', () => {
-        const data = document.getElementById('companyData').value;
-        const company = document.getElementById('companySelect').value;
-        const publicKey = demoKeys.find(key => key.company === company).publicKey;
-
-        const signature = prompt("Enter signature for verification:");
-        if (data && publicKey && signature) {
-            const isValid = CompanyVerification.verifySignature(data, signature, publicKey);
-            document.getElementById('verificationResult').innerText =
-                isValid ? "Verification successful!" : "Verification failed!";
-        } else {
-            alert("Missing data, signature, or company selection.");
-        }
-    });
-</script>
-
 document.getElementById('verifyData').addEventListener('click', () => {
     const data = document.getElementById('companyData').value;
     const company = document.getElementById('companySelect').value;
@@ -103,6 +87,8 @@ document.getElementById('verifyData').addEventListener('click', () => {
         resultDiv.className = "";
     }
 });
+
+</script>
 
 
 </html>
