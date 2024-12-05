@@ -3,92 +3,94 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-}
-
-/* Navbar */
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-}
-
-.navbar {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* Login button and form */
-.login {
-    position: relative;
-}
-
-#loginForm {
-    position: absolute;
-    top: 30px;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ddd;
-    padding: 10px;
-    display: none;
-}
-
-#loginForm input {
-    display: block;
-    margin-bottom: 10px;
-}
-
-#loginForm button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-#loginForm button:hover {
-    background-color: #0056b3;
-}
-
-
-h1 {
+    background-color: #f9f9f9;
     color: #333;
-    margin: 20px 0;
 }
 
+/* Centered content */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titles and headers */
+h2 {
+    color: #444;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+/* Labels and inputs */
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Buttons */
 button {
-    margin: 10px;
-    padding: 10px 20px;
+    width: auto;
+    padding: 10px 15px;
     background-color: #007BFF;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-#output div {
-    border: 1px solid #ddd;
-    margin: 10px auto;
+/* Verification result display */
+#verificationResult {
+    margin-top: 20px;
     padding: 10px;
-    width: 90%;
-    background: white;
-    text-align: left;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f4f4f9;
+    border: 1px solid #ddd;
 }
 
+/* Success styling */
+#verificationResult.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Failure styling */
+#verificationResult.failure {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    main {
+        padding: 15px;
+    }
+
+    input, select, button {
+        font-size: 0.9em;
+    }
+}
 
