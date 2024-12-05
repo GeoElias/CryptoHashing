@@ -43,3 +43,15 @@ document.getElementById('submitLogin').addEventListener('click', () => {
         alert("Invalid username or password.");
     }
 });
+
+// Tamper with the blockchain
+document.getElementById('tamperBlock').addEventListener('click', () => {
+    if (supplyChain.chain.length > 1) {
+        // Tamper with the data of the second block (index 1)
+        supplyChain.chain[1].data = "Tampered Data";
+        displayChain();
+        alert("Block has been tampered with.");
+    } else {
+        alert("Not enough blocks to tamper.");
+    }
+});
