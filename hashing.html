@@ -18,4 +18,28 @@
     <script src="blockchain.js"></script>
     <script src="script.js"></script>
 </body>
+
+    <div>
+    <h2>Company Verification</h2>
+    <label for="companyData">Company Data:</label>
+    <input type="text" id="companyData">
+    <label for="privateKey">Private Key:</label>
+    <input type="password" id="privateKey">
+    <button id="verifyCompany">Verify</button>
+    <div id="verificationResult"></div>
+</div>
+
+<script>
+    document.getElementById('verifyCompany').addEventListener('click', () => {
+        const data = document.getElementById('companyData').value;
+        const privateKey = document.getElementById('privateKey').value;
+        const signature = CompanyVerification.generateSignature(data, privateKey);
+        const isValid = CompanyVerification.verifySignature(data, signature, privateKey);
+
+        document.getElementById('verificationResult').textContent = 
+            isValid ? "Company is valid!" : "Invalid company verification.";
+    });
+</script>
+
 </html>
+
