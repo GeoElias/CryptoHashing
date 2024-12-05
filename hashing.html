@@ -85,6 +85,24 @@
     });
 </script>
 
+document.getElementById('verifyData').addEventListener('click', () => {
+    const data = document.getElementById('companyData').value;
+    const company = document.getElementById('companySelect').value;
+    const publicKey = demoKeys.find(key => key.company === company).publicKey;
+
+    const signature = prompt("Enter signature for verification:");
+    const resultDiv = document.getElementById('verificationResult');
+
+    if (data && publicKey && signature) {
+        const isValid = CompanyVerification.verifySignature(data, signature, publicKey);
+        resultDiv.textContent = isValid ? "Verification successful!" : "Verification failed!";
+        resultDiv.className = isValid ? "success" : "failure";
+    } else {
+        alert("Missing data, signature, or company selection.");
+        resultDiv.textContent = "";
+        resultDiv.className = "";
+    }
+});
 
 
 </html>
