@@ -44,11 +44,14 @@ document.getElementById('submitLogin').addEventListener('click', () => {
     }
 });
 
-// Tamper with the blockchain
 document.getElementById('tamperBlock').addEventListener('click', () => {
     if (supplyChain.chain.length > 1) {
-        // Tamper with the data of the second block (index 1)
+        // Tamper with the second block's data
         supplyChain.chain[1].data = "Tampered Data";
+
+        // Tamper with its hash to simulate an attack
+        supplyChain.chain[1].hash = "1234567890abcdef";
+
         displayChain();
         alert("Block has been tampered with.");
     } else {
