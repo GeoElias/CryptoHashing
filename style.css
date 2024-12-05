@@ -160,3 +160,59 @@ footer p {
         padding: 15px;
     }
 }
+
+/* NEW */
+
+/* Style for the back to main page button */
+#backToMain {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#backToMain:hover {
+    background-color: #45a049;
+}
+
+/* General styles for headers and text */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 30px;
+}
+
+h3, h4 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+section {
+    margin: 30px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1em;
+}
+
