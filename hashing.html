@@ -41,5 +41,51 @@
     });
 </script>
 
+    <div>
+    <h2>Company Verification</h2>
+    <label for="companyData">Data to Verify:</label>
+    <input type="text" id="companyData" placeholder="Enter company data">
+    <label for="companySelect">Select Company:</label>
+    <select id="companySelect">
+        <option value="Company A">Company A</option>
+        <option value="Company B">Company B</option>
+    </select>
+    <button id="signData">Sign Data</button>
+    <button id="verifyData">Verify Data</button>
+    <div id="verificationResult"></div>
+</div>
+
+    <script>
+    document.getElementById('signData').addEventListener('click', () => {
+        const data = document.getElementById('companyData').value;
+        const company = document.getElementById('companySelect').value;
+        const privateKey = demoKeys.find(key => key.company === company).privateKey;
+
+        if (data && privateKey) {
+            const signature = CompanyVerification.signData(data, privateKey);
+            alert(`Signature: ${signature}`);
+        } else {
+            alert("Missing data or company selection.");
+        }
+    });
+
+    document.getElementById('verifyData').addEventListener('click', () => {
+        const data = document.getElementById('companyData').value;
+        const company = document.getElementById('companySelect').value;
+        const publicKey = demoKeys.find(key => key.company === company).publicKey;
+
+        const signature = prompt("Enter signature for verification:");
+        if (data && publicKey && signature) {
+            const isValid = CompanyVerification.verifySignature(data, signature, publicKey);
+            document.getElementById('verificationResult').innerText =
+                isValid ? "Verification successful!" : "Verification failed!";
+        } else {
+            alert("Missing data, signature, or company selection.");
+        }
+    });
+</script>
+
+
+
 </html>
 
