@@ -43,3 +43,14 @@ class Blockchain {
         return true;
     }
 }
+
+class CompanyVerification {
+    static generateSignature(data, privateKey) {
+        return CryptoJS.HmacSHA256(data, privateKey).toString();
+    }
+
+    static verifySignature(data, signature, privateKey) {
+        const validSignature = CryptoJS.HmacSHA256(data, privateKey).toString();
+        return signature === validSignature;
+    }
+}
