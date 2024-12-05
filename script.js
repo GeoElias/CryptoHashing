@@ -1,5 +1,7 @@
+// Initialize blockchain
 const supplyChain = new Blockchain();
 
+// Add block functionality
 document.getElementById('addBlock').addEventListener('click', () => {
     const data = prompt("Enter block data:");
     if (data) {
@@ -9,11 +11,27 @@ document.getElementById('addBlock').addEventListener('click', () => {
     }
 });
 
+// Validate chain functionality
 document.getElementById('validateChain').addEventListener('click', () => {
-    const output = supplyChain.isChainValid() ? "Blockchain is valid." : "Blockchain is not valid!";
+    const isValid = supplyChain.isChainValid();
+    const output = isValid ? "Blockchain is valid." : "Blockchain is NOT valid!";
     alert(output);
 });
 
+// Tamper with block functionality
+document.getElementById('tamperBlock').addEventListener('click', () => {
+    if (supplyChain.chain.length > 1) {
+        // Tamper with the second block's data and hash
+        supplyChain.chain[1].data = "Tampered Data";
+        supplyChain.chain[1].hash = "1234567890abcdef"; // Fake hash
+        displayChain();
+        alert("Block has been tampered with.");
+    } else {
+        alert("Not enough blocks to tamper with.");
+    }
+});
+
+// Display blockchain in DOM
 function displayChain() {
     const outputDiv = document.getElementById('output');
     outputDiv.innerHTML = supplyChain.chain.map(block => `
@@ -26,35 +44,6 @@ function displayChain() {
         </div>
     `).join('<hr>');
 }
+
+// Initial display of the blockchain
 displayChain();
-
-document.getElementById('loginBtn').addEventListener('click', () => {
-    const loginForm = document.getElementById('loginForm');
-    loginForm.classList.toggle('hidden');
-});
-
-document.getElementById('submitLogin').addEventListener('click', () => {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username === "admin" && password === "1234") {
-        alert("Login successful!");
-    } else {
-        alert("Invalid username or password.");
-    }
-});
-
-document.getElementById('tamperBlock').addEventListener('click', () => {
-    if (supplyChain.chain.length > 1) {
-        // Tamper with the second block's data
-        supplyChain.chain[1].data = "Tampered Data";
-
-        // Tamper with its hash to simulate an attack
-        supplyChain.chain[1].hash = "1234567890abcdef";
-
-        displayChain();
-        alert("Block has been tampered with.");
-    } else {
-        alert("Not enough blocks to tamper.");
-    }
-});
