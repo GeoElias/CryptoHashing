@@ -43,20 +43,3 @@ class Blockchain {
         return true;
     }
 }
-
-class CompanyVerification {
-    static signData(data, privateKey) {
-        const sign = forge.md.sha256.create();
-        sign.update(data, "utf8");
-        const privateKeyObj = forge.pki.privateKeyFromPem(privateKey);
-        return forge.util.encode64(privateKeyObj.sign(sign));
-    }
-
-    static verifySignature(data, signature, publicKey) {
-        const verify = forge.md.sha256.create();
-        verify.update(data, "utf8");
-        const publicKeyObj = forge.pki.publicKeyFromPem(publicKey);
-        return publicKeyObj.verify(verify.digest().bytes(), forge.util.decode64(signature));
-    }
-}
-
