@@ -1,4 +1,4 @@
-/* General Styling */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-/* Header and Navigation Bar */
+
 header {
     background-color: #007BFF;
     padding: 10px 0;
@@ -38,7 +38,7 @@ header {
     background-color: #0056b3;
 }
 
-/* Login Button and Form */
+
 .login {
     position: absolute;
     top: 10px;
@@ -100,7 +100,7 @@ header {
     background-color: #0056b3;
 }
 
-/* Main Content */
+
 main {
     max-width: 900px;
     margin: 20px auto;
@@ -131,7 +131,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* Footer */
+
 footer {
     background-color: #333;
     color: white;
@@ -145,7 +145,7 @@ footer p {
     font-size: 0.9em;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -163,7 +163,7 @@ footer p {
 
 /* NEW */
 
-/* Style for the back to main page button */
+
 #backToMain {
     position: absolute;
     top: 10px;
@@ -180,7 +180,7 @@ footer p {
     background-color: #45a049;
 }
 
-/* General styles for headers and text */
+
 h1 {
     text-align: center;
     margin-top: 50px;
