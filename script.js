@@ -1,7 +1,7 @@
-// Initialize blockchain
+
 const supplyChain = new Blockchain();
 
-// Add block functionality
+
 document.getElementById('addBlock').addEventListener('click', () => {
     const data = prompt("Enter block data:");
     if (data) {
@@ -11,14 +11,14 @@ document.getElementById('addBlock').addEventListener('click', () => {
     }
 });
 
-// Validate chain functionality
+
 document.getElementById('validateChain').addEventListener('click', () => {
     const isValid = supplyChain.isChainValid();
     const output = isValid ? "Blockchain is valid." : "Blockchain is NOT valid!";
     alert(output);
 });
 
-// Tamper with block functionality
+
 document.getElementById('tamperBlock').addEventListener('click', () => {
     if (supplyChain.chain.length > 1) {
         // Tamper with the second block's data and hash
@@ -31,7 +31,7 @@ document.getElementById('tamperBlock').addEventListener('click', () => {
     }
 });
 
-// Display blockchain in DOM
+
 function displayChain() {
     const outputDiv = document.getElementById('output');
     outputDiv.innerHTML = supplyChain.chain.map(block => `
@@ -45,5 +45,5 @@ function displayChain() {
     `).join('<hr>');
 }
 
-// Initial display of the blockchain
+
 displayChain();
